@@ -9,11 +9,13 @@ const Film = ({film, onFilmClick}) => {
 
   return (
     <div>
+    <a onClick={handleClick}>
       <li className="film">
-        {film.title}<br/>
+        {film.title} <br/>
         {film.release_date}<br/>
-        <button onClick={handleClick}>More Details</button>
+       
       </li>
+      </a>
     </div>
   )
 }

@@ -4,8 +4,9 @@ import FilmDetails from './FilmDetails';
 
 const FilmList = ({films, onFilmClick}) => {
 
-  const filmNodes = films.map((film,index) => {
-    return <Film key={index} film={film} onFilmClick={onFilmClick}/>
+  const filmNodes = films.map((film) => {
+   
+    return <Film key={film.episode_id} film={film} onFilmClick={onFilmClick}/>
   })
   return (
     <div>

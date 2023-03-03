@@ -7,7 +7,7 @@ import MainContainer from './containers/MainContainer';
 function App() {
   return (
     <div>
-    <p>hola this works</p>
+    <h1>Star Wars</h1>
      <MainContainer/>
     </div>
   );

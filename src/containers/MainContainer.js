@@ -5,6 +5,7 @@ import FilmDetails from '../components/FilmDetails';
 const MainContainer = () => {
   const [films, setFilms] = useState([]);
   const [selectedFilm, setSelectedFilm] = useState([]);
+  const [characters, setCharacters] = useState([])
 
   useEffect(() => {
     getFilms()
@@ -17,14 +18,24 @@ const MainContainer = () => {
   }
 
   const onFilmClick=(film) => {
-    setSelectedFilm(film);
+    const characterPromises = film.characters.map((character) => {
+        return fetch(character)
+        .then(res => res.json())      
+    })
+    Promise.all(characterPromises)
+    .then((data) => {
+      setCharacters(data)
+      setSelectedFilm(film);
+    })
+
+   
     window.scroll(0, 0);
   };
 
   return (
     <div>
-    <p>main</p> 
-    <FilmDetails film={selectedFilm}/>
+    
+    <FilmDetails film={selectedFilm} characters={characters}/>
     <FilmList films={films} onFilmClick={onFilmClick}/>
     
     </div>
