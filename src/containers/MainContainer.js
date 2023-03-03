@@ -14,7 +14,8 @@ const MainContainer = () => {
   const getFilms =() => {
     fetch('https://swapi.dev/api/films/')
     .then(res => res.json())
-    .then(data => setFilms(data.results))
+    .then(data => setFilms(data.results.sort((a,b) => a.episode_id - b.episode_id)))
+
   }
 
   const onFilmClick=(film) => {
