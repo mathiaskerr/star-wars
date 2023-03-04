@@ -1,15 +1,33 @@
 import React, {useState, useEffect} from 'react';
 import FilmList from '../components/FilmList';
 import FilmDetails from '../components/FilmDetails';
+import Starships from '../components/Starships';
+
 
 const MainContainer = () => {
   const [films, setFilms] = useState([]);
   const [selectedFilm, setSelectedFilm] = useState([]);
-  const [characters, setCharacters] = useState([])
+  const [characters, setCharacters] = useState([]);
+  const [starships, setStarships] = useState([]);
+  
 
-  useEffect(() => {
-    getFilms()
-  },[])
+
+
+    useEffect(() => {
+      getFilms()
+      getStarships("https://swapi.dev/api/starships/")
+  
+      
+    },[])
+
+
+  const getStarships = (Url) => {
+    return fetch(Url)
+    .then(res => res.json())
+    .then(data => setStarships(data))
+    }
+    
+
 
   const getFilms =() => {
     fetch('https://swapi.dev/api/films/')
@@ -35,11 +53,12 @@ const MainContainer = () => {
 
   return (
     <div>
-    
+
     <FilmDetails film={selectedFilm} characters={characters}/>
     <FilmList films={films} onFilmClick={onFilmClick}/>
-    
+    {starships ? <Starships starships={starships}/> : null} 
     </div>
+   
   )
 }
 
