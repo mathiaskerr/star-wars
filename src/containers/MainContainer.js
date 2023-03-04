@@ -2,6 +2,10 @@ import React, {useState, useEffect} from 'react';
 import FilmList from '../components/FilmList';
 import FilmDetails from '../components/FilmDetails';
 import Starships from '../components/Starships';
+import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
+import NavBar from '../components/NavBar';
+
+
 
 
 const MainContainer = () => {
@@ -56,9 +60,17 @@ const MainContainer = () => {
   return (
     <div>
 
-    <FilmDetails film={selectedFilm} characters={characters}/>
-    <FilmList films={films} onFilmClick={onFilmClick}/>
-    {starships ? <Starships starships={starships} getStarships={getStarships}/> : null} 
+   
+    <Router>
+     <NavBar/>
+      <Routes>
+      {/* <Route path="/" element={<MainContainer />}/> */}
+        <Route path="/starships" element={<Starships starships={starships} getStarships={getStarships}/>}/>
+      </Routes>
+     </Router>
+      <FilmDetails film={selectedFilm} characters={characters}/>
+          <FilmList films={films} onFilmClick={onFilmClick}/>
+    {/* {starships ? <Starships starships={starships} getStarships={getStarships}/> : null}  */}
     </div>
    
   )

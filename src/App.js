@@ -12,15 +12,9 @@ const App=() => {
 
   return (
     <div>
-    <h1>Star Wars</h1>
-   
-     <Router>
-     <NavBar/>
-      <Routes>
-      <Route path="/" element={<MainContainer />}/>
-        {/* <Route path="/starships" element={<Starships/>}/> */}
-      </Routes>
-     </Router>
+      <h1>Star Wars</h1>
+        <MainContainer/>
+
   
     </div>
   );
