@@ -10,17 +10,19 @@ const Starships = ({starships, getStarships}) => {
   
 
   const handleClick = () => {
-    getStarships(starships.next)
+    if(starships.next){
+    return getStarships(starships.next)}
   }
 
   const handleClickPrevious=() => {
-    getStarships(starships.previous)
+    if(starships.previous){
+    return getStarships(starships.previous)}
   }
 
   return (
     <div>
     <h2>Starships</h2>
-      <span><button onClick={handleClickPrevious}>Previous Page</button><button onClick={handleClick}>Next Page</button></span>
+      <span><button onClick={handleClickPrevious}>Previous Page</button>  <button onClick={handleClick}>Next Page</button></span>
         <ul>
         
           {starshipNodes}
