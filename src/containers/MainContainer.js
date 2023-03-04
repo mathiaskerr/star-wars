@@ -8,7 +8,7 @@ const MainContainer = () => {
   const [films, setFilms] = useState([]);
   const [selectedFilm, setSelectedFilm] = useState([]);
   const [characters, setCharacters] = useState([]);
-  const [starships, setStarships] = useState([]);
+  const [starships, setStarships] = useState(null);
   
 
 
@@ -51,12 +51,14 @@ const MainContainer = () => {
     window.scroll(0, 0);
   };
 
+ 
+
   return (
     <div>
 
     <FilmDetails film={selectedFilm} characters={characters}/>
     <FilmList films={films} onFilmClick={onFilmClick}/>
-    {starships ? <Starships starships={starships}/> : null} 
+    {starships ? <Starships starships={starships} getStarships={getStarships}/> : null} 
     </div>
    
   )
