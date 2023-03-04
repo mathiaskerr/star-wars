@@ -2,20 +2,23 @@ import './App.css';
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import MainContainer from './containers/MainContainer';
 import Starships from './components/Starships';
-import FilmDetails from './components/FilmDetails';
+import NavBar from './components/NavBar';
 
 
 
-function App() {
+const App=() => {
   return (
     <div>
     <h1>Star Wars</h1>
-     <MainContainer/>
+    
      <Router>
+     <NavBar/>
       <Routes>
-        <Route path="/" element={<Starships/>}/>
+      <Route path="/" element={<MainContainer/>}/>
+        <Route path="/starships" element={<Starships/>}/>
       </Routes>
      </Router>
+  
     </div>
   );
 }

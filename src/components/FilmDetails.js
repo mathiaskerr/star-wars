@@ -7,7 +7,7 @@ const FilmDetails = ({film, characters}) => {
     return <li key={index}> {character.name} </li>
   })
   return (
-    <div>
+    <div className="details">
     
      {film.title}<br/>
      {film.release_date}<br/>
@@ -15,10 +15,6 @@ const FilmDetails = ({film, characters}) => {
      {film.producer}<br/>
      <ul>
       {characterNodes}
-
-     <li>
-     {/* <Link to="/">Starships</Link> */}
-     </li>
      </ul>
 
     </div>
