@@ -1,6 +1,6 @@
 import React from 'react';
 import Film from './Film';
-
+import "./FilmList.css";
 
 const FilmList = ({films, onFilmClick}) => {
 
@@ -13,7 +13,7 @@ const FilmList = ({films, onFilmClick}) => {
     
    
 
-    <ul>
+    <ul className="filmNodes">
        {filmNodes}
     </ul>
     </div>

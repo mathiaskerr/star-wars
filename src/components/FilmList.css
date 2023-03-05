@@ -1,0 +1,17 @@
+
+.filmNodes {
+  list-style: none;
+  margin: 20px;
+  padding:0;
+  display:flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+
+}
+
+.film{
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 10px;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import "./FilmList.css"
 
 
 const Film = ({film, onFilmClick}) => {
@@ -7,13 +7,16 @@ const Film = ({film, onFilmClick}) => {
     onFilmClick(film)
   };
 
+
+
+
   return (
-    <div>
+    <div >
     <a onClick={handleClick}>
       <li className="film">
         {film.title} <br/>
         {film.release_date}<br/>
-       
+     
       </li>
       </a>
     </div>

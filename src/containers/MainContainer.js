@@ -63,7 +63,7 @@ const MainContainer = () => {
    
     <Router>
      <NavBar/>
-      {selectedFilm? (<FilmDetails film={selectedFilm} characters={characters}/>): <img/>}
+     
       <Routes>
         <Route path="/" element={<FilmList films={films} onFilmClick={onFilmClick}/>}/>
         <Route path="/starships" element={<Starships starships={starships} getStarships={getStarships}/>}/>
@@ -72,7 +72,7 @@ const MainContainer = () => {
         {/* <Route path="/films" element={}/> */}
       </Routes>
      </Router>
-     
+      <FilmDetails film={selectedFilm} characters={characters}/>
 
     </div>
    

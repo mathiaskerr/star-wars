@@ -8,16 +8,16 @@ const FilmDetails = ({film, characters}) => {
   })
   return (
     <div className="details">
-    
+  
      {film.title}<br/>
      {film.release_date}<br/>
      {film.director}<br/>
      {film.producer}<br/>
-     Episode: {film.episode_id}
+     {/* Episode: {film.episode_id} */}
      <ul>
       {characterNodes}
      </ul>
-
+   
     </div>
   )
 }
