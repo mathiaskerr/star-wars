@@ -63,14 +63,17 @@ const MainContainer = () => {
    
     <Router>
      <NavBar/>
+      {selectedFilm? (<FilmDetails film={selectedFilm} characters={characters}/>): <img/>}
       <Routes>
-      {/* <Route path="/" element={<MainContainer />}/> */}
+        <Route path="/" element={<FilmList films={films} onFilmClick={onFilmClick}/>}/>
         <Route path="/starships" element={<Starships starships={starships} getStarships={getStarships}/>}/>
+
+
+        {/* <Route path="/films" element={}/> */}
       </Routes>
      </Router>
-      <FilmDetails film={selectedFilm} characters={characters}/>
-          <FilmList films={films} onFilmClick={onFilmClick}/>
-    {/* {starships ? <Starships starships={starships} getStarships={getStarships}/> : null}  */}
+     
+
     </div>
    
   )

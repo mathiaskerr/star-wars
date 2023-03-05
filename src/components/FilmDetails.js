@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+
 
 const FilmDetails = ({film, characters}) => {
 
@@ -13,6 +13,7 @@ const FilmDetails = ({film, characters}) => {
      {film.release_date}<br/>
      {film.director}<br/>
      {film.producer}<br/>
+     Episode: {film.episode_id}
      <ul>
       {characterNodes}
      </ul>

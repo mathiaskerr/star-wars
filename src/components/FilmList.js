@@ -12,7 +12,7 @@ const FilmList = ({films, onFilmClick}) => {
     <div>
     
    
-    <p>Film List</p>
+
     <ul>
        {filmNodes}
     </ul>
