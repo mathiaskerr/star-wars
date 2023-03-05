@@ -33,11 +33,13 @@ const MainContainer = () => {
     }
     
     const searchBar = (text) => {
+      if (text){
       const search = starships.results.filter((starship) => {
         return starship.name.toLowerCase().includes(text.toLowerCase())
           
       })
-      setFilterData(search) 
+      setFilterData(search) }
+      else{ setFilterData([])}
     }
 
   const getFilms =() => {
