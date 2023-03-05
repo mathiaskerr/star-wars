@@ -1,13 +1,22 @@
 import React from 'react'
+import Search from './Search'
 
-const Starships = ({starships, getStarships}) => {
+const Starships = ({starships, getStarships, searchBar, filterData}) => {
   
   
-    const starshipNodes = starships.results.map((starship, index) => {
+
+  let starshipNodes;
+ 
+  if (filterData.length === 0){
+    starshipNodes = starships.results.map((starship, index) => {
     return <li key={index}>{starship.name}</li>
- })
-  
-  
+ })}
+ else{
+   starshipNodes = filterData.map((starship, index) => {
+    return <li key={index}>{starship.name}</li>
+
+   })}
+
 
   const handleClick = () => {
     if(starships.next){
@@ -22,6 +31,7 @@ const Starships = ({starships, getStarships}) => {
   return (
     <div>
     <h2>Starships</h2>
+    <Search searchBar={searchBar}/>
       <span><button onClick={handleClickPrevious}>Previous Page</button>  <button onClick={handleClick}>Next Page</button></span>
         <ul>
         

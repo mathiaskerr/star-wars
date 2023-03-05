@@ -13,6 +13,7 @@ const MainContainer = () => {
   const [selectedFilm, setSelectedFilm] = useState([]);
   const [characters, setCharacters] = useState([]);
   const [starships, setStarships] = useState(null);
+  const [filterData, setFilterData] = useState([]);
   
 
 
@@ -31,7 +32,13 @@ const MainContainer = () => {
     .then(data => setStarships(data))
     }
     
-
+    const searchBar = (text) => {
+      const search = starships.results.filter((starship) => {
+        return starship.name.toLowerCase().includes(text.toLowerCase())
+          
+      })
+      setFilterData(search) 
+    }
 
   const getFilms =() => {
     fetch('https://swapi.dev/api/films/')
@@ -66,7 +73,7 @@ const MainContainer = () => {
      
       <Routes>
         <Route path="/" element={<FilmList films={films} onFilmClick={onFilmClick}/>}/>
-        <Route path="/starships" element={<Starships starships={starships} getStarships={getStarships}/>}/>
+        <Route path="/starships" element={<Starships starships={starships} getStarships={getStarships} searchBar={searchBar} filterData={filterData}/>}/>
 
 
         {/* <Route path="/films" element={}/> */}
